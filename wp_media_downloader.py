@@ -1,9 +1,11 @@
 import xml.etree.ElementTree as ET
+
+import requests
+
 tree = ET.parse('embarquecomapri.wordpress.2016-11-14.post_type-attachment.001.xml')
 root = tree.getroot()
 for item in root.iter('item'):
     print item[20].text
-import requests
 for item in root.iter('item'):
     url = item[20].text
     with open(url.split('/')[-1], 'wb') as handle:
