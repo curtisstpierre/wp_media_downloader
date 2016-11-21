@@ -9,16 +9,6 @@ for item in root.iter('item'):
 for item in root.iter('item'):
     url = item[20].text
     with open(url.split('/')[-1], 'wb') as handle:
-        response = requests.get(pic_url, stream=True)
-        if not response.ok:
-            print response
-        for block in response.iter_content(1024):
-            if not block:
-                break
-            handle.write(block)
-for item in root.iter('item'):
-    url = item[20].text
-    with open(url.split('/')[-1], 'wb') as handle:
         response = requests.get(url, stream=True)
         if not response.ok:
             print response
